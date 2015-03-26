@@ -6,15 +6,15 @@
 
 
     <TableRow
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/lay_menu1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FF0000"
             android:layout_marginBottom="@dimen/espacio_entre_celdas">
@@ -48,8 +48,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/lay_menu2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#FFF000"
             android:layout_marginLeft="@dimen/espacio_entre_celdas"
@@ -84,15 +84,15 @@
     </TableRow>
 
     <TableRow
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1" >
 
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/lay_menu3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#ff0629ff">
 
@@ -124,8 +124,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/lay_menu4"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#ff54ff18"
             android:layout_marginLeft="@dimen/espacio_entre_celdas">

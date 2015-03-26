@@ -1,15 +1,20 @@
 package com.example.jhon.okonexionmetro;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.text.Layout;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import libreria.complementos.Mensaje;
 import libreria.sistema.App;
 
 
@@ -21,14 +26,9 @@ public class MenuPrincipal extends ActionBarActivity {
 
         setContentView(R.layout.activity_menu_principal);
 
-        App.establecerBarraAccion(this);
+        App.establecerBarraAccion(this,null);
 
        establecerApariencia();
-
-/*
-        ProgressDialog progress = new ProgressDialog(this);
-        progress.setMessage("Cargando aplicación, por favor espere...");
-        new CargarConfiguracion(progress, this).execute();*/
 
     }
 
@@ -42,6 +42,16 @@ public class MenuPrincipal extends ActionBarActivity {
         LinearLayout layoutMenu3 = (LinearLayout) findViewById(R.id.lay_menu3);
         //Obtiene el componente Layout del Boton 4 "PQR"
         LinearLayout layoutMenu4 = (LinearLayout) findViewById(R.id.lay_menu4);
+
+
+        //Noticias
+        layoutMenu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MenuPrincipal.this,NoticiasActivity.class);
+                startActivity(intent);
+            }
+        });
 
         TableLayout contenedor=(TableLayout)findViewById(R.id.contenedor_menu_principal);
         contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorBarraApp)));

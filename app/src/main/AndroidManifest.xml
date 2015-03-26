@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jhon.okonexionmetro" >
 
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,11 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".NoticiasActivity"
+            android:label="@string/title_activity_noticias" >
+        </activity>
     </application>
-
-<uses-permission android:name="android.permission.INTERNET" >
-</uses-permission>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
-</uses-permission>
 
 </manifest>

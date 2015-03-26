@@ -46,16 +46,27 @@ public class App {
      * ******************************************************
      */
 
+    public static boolean cargaNoticias=false;
+
+
+    /**
+     * *******************************************************
+     * VARIABLES DE DEFINCION DE DATOS
+     * ******************************************************
+     */
+
     public static final String CONFIG_MOSTRAR_NOMBRE_SOLOTEXTO = "soloTexto";
     public static final String CONFIG_MOSTRAR_NOMBRE_TEXTOLOGO = "textoLogo";
     public static final String CONFIG_MOSTRAR_NOMBRE_SOLOLOGO = "soloLogo";
+    public static final int W_IMAGEN_NOTICIA=621;
+    public static final int H_IMAGEN_NOTICIA=483;
 
     /**
      * Establece la configuraciòn de apariencia dada por la configuracion de las variables de la App
      *
      * @param activity
      */
-    public static void establecerBarraAccion(ActionBarActivity activity) {
+    public static void establecerBarraAccion(ActionBarActivity activity,String titulo) {
 
 
         //*************************************************************
@@ -65,7 +76,7 @@ public class App {
         //Establece el color de fondo de la barra App
         activity.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor(App.colorBarraApp)));
         //Establece el color del texto de la barra
-        activity.getSupportActionBar().setTitle(Html.fromHtml("<font color='" + App.colorNombreApp + "'>" + App.nombreApp + "</font>"));
+        activity.getSupportActionBar().setTitle(Html.fromHtml("<font color='" + App.colorNombreApp + "'>" + App.nombreApp+"</font>"));
 
         /**NOTA: Alineación del texto y el logo de barra aun no soportado**/
 
@@ -74,6 +85,9 @@ public class App {
         if (App.mostrarNombre == App.CONFIG_MOSTRAR_NOMBRE_SOLOTEXTO) {
             activity.getSupportActionBar().setDisplayUseLogoEnabled(false);
             activity.getSupportActionBar().setDisplayShowHomeEnabled(false);
+            if(titulo!=null) {
+                activity.getSupportActionBar().setSubtitle(Html.fromHtml("<font color='" + App.colorNombreApp + "'>" + titulo+"</font>"));
+            }
         }
 
         if (App.mostrarNombre == App.CONFIG_MOSTRAR_NOMBRE_TEXTOLOGO) {
@@ -81,6 +95,9 @@ public class App {
             activity.getSupportActionBar().setDisplayUseLogoEnabled(true);
             activity.getSupportActionBar().setDisplayShowHomeEnabled(true);
             activity.getSupportActionBar().setDisplayShowTitleEnabled(true);
+            if(titulo!=null) {
+                activity.getSupportActionBar().setSubtitle(Html.fromHtml("<font color='" + App.colorNombreApp + "'>" + titulo+"</font>"));
+            }
         }
 
         if (App.mostrarNombre == App.CONFIG_MOSTRAR_NOMBRE_SOLOLOGO) {
