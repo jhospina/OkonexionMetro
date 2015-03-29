@@ -12,9 +12,7 @@ import com.example.jhon.okonexionmetro.R;
  */
 public class App {
     public static final String KEY_APP = "I2uqHDXS3RR8lgmaCOG9eZmcO15w7O6x0kxFoKYfbpbCLDdNR"; // Indica la llave unica de identificación de la aplicacion
-    public static final String URL_CONFIG = "http://okonexion.com/upanel/public/app/conectar";
     public static int base_info_version = 0; //Indica la versión de la informacion base
-
 
     /**
      * *******************************************************
@@ -40,13 +38,30 @@ public class App {
     public static String colorFondoMenuBt_4 = "#FFFFFF";
 
 
+
+
+    /**
+     * *******************************************************
+     * URLS DE DESCARGAR DE INFORMACION
+     * ******************************************************
+     */
+
+    public static final String URL_DESCARGAR_NOTICIAS = "http://okonexion.com/upanel/public/app/descargar/noticias";
+
+
+
     /**
      * *******************************************************
      * VARIABLES DE CONTROL
      * ******************************************************
      */
 
-    public static boolean cargaNoticias=false;
+    public static boolean noticias_descargadas =false; //Indica si las noticias ya fueron descargadas
+    public static int noticias_cantidad_a_cargar=16;//Indica el numero de noticias a cargar
+    public static int noticias_cargadas=0;
+
+  public static boolean descarga_iniciada=false;//Indica si existe un descarga iniciada
+
 
 
     /**
@@ -60,6 +75,22 @@ public class App {
     public static final String CONFIG_MOSTRAR_NOMBRE_SOLOLOGO = "soloLogo";
     public static final int W_IMAGEN_NOTICIA=621;
     public static final int H_IMAGEN_NOTICIA=483;
+
+    public static int id_mensaje_no_hay_contenido=7738283;
+
+
+    /**
+     * *******************************************************
+     * DEFINICION DE TEXTOS
+     * ******************************************************
+     */
+
+    public static String mensaje_titulo_sin_conexion="SIN CONEXION";
+    public static String mensaje_descripcion_sin_conexion="No es posible conectarse al servidor.";
+    public static String mensaje_cargando="Cargando, por favor espere...";
+    public static String mensaje_fecha_publicacion="Publicado el";
+    public static String mensaje_no_hay_contenido="No hay contenido para mostrar";
+
 
     /**
      * Establece la configuraciòn de apariencia dada por la configuracion de las variables de la App

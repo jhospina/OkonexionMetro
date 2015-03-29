@@ -2,10 +2,7 @@ package libreria.complementos;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.os.Bundle;
 
 /**
  * Created by Jhon on 25/03/2015.

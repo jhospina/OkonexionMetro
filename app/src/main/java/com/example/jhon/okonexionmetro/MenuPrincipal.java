@@ -1,20 +1,15 @@
 package com.example.jhon.okonexionmetro;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.Html;
-import android.text.Layout;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import libreria.complementos.Mensaje;
 import libreria.sistema.App;
 
 
@@ -28,7 +23,7 @@ public class MenuPrincipal extends ActionBarActivity {
 
         App.establecerBarraAccion(this,null);
 
-       establecerApariencia();
+        establecerApariencia();
 
     }
 

@@ -1,22 +1,25 @@
 package libreria.tipos_contenido;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.jhon.okonexionmetro.R;
+import com.example.jhon.okonexionmetro.VerNoticiaActivity;
 
 import libreria.complementos.Util;
 import libreria.conexion.CargarImagen;
+import libreria.conexion.Conexion;
 import libreria.sistema.App;
 import libreria.sistema.ControladorBaseDatos;
 
@@ -26,6 +29,11 @@ import libreria.sistema.ControladorBaseDatos;
 public class Noticias {
 
     Activity activity;
+    public int id;
+    public String titulo;
+    public String descripcion;
+    public String urlImagen;
+    public String fecha;
 
     public Noticias(Activity activity)
     {
@@ -33,16 +41,44 @@ public class Noticias {
     }
 
 
-    public void cargar(){
+    /** Busca y obtiene una noticia dada por su numero ID
+     *
+     * @param activity La actividad actual
+     * @param id El id de la noticia a buscar
+     * @return
+     */
+    public static Noticias buscar(Activity activity, int id){
         ControladorBaseDatos dbc = new ControladorBaseDatos(activity, ControladorBaseDatos.nombreDB, null, 1);
         SQLiteDatabase db = dbc.getReadableDatabase();
 
-        TableLayout contenedor = (TableLayout) activity.findViewById(R.id.tab_contenedor_noticias);
-        contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorBarraApp)));
+        Cursor c=db.rawQuery("SELECT * FROM noticias where id='"+id+"'",null);
+
+        if(c.moveToFirst()){
+            Noticias noticia=new Noticias(activity);
+            noticia.setId(c.getInt(0));
+            noticia.setTitulo(c.getString(2));
+            noticia.setDescripcion(c.getString(3));
+            noticia.setUrlImagen(c.getString(4));
+            noticia.setFecha(c.getString(5));
+            return noticia;
+        }
+
+        return null;
+    }
 
 
-        Cursor noticias = db.rawQuery("SELECT * FROM noticias", null);
+    /** Carga un listado de noticias en un layout dado por su Referencia
+     *
+     * @param layout (int) El layout donde se mostrara las noticias
+     */
+    public void cargar(int layout){
+        ControladorBaseDatos dbc = new ControladorBaseDatos(activity, ControladorBaseDatos.nombreDB, null, 1);
+        SQLiteDatabase db = dbc.getReadableDatabase();
 
+        ViewGroup contenedor =(ViewGroup) activity.findViewById(layout);
+        contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_2)));
+
+        Cursor noticias = db.rawQuery("SELECT * FROM "+ControladorBaseDatos.tabla_noticias+" ORDER BY id ASC LIMIT "+(App.noticias_cargadas)+","+App.noticias_cantidad_a_cargar, null);
 
         if (noticias.moveToFirst()) {
 
@@ -56,7 +92,8 @@ public class Noticias {
             do {
 
                 n++;
-
+                App.noticias_cargadas++;
+                final int id_noticia=noticias.getInt(0);
                 String titulo = noticias.getString(2);
                 String URL_imagen = noticias.getString(4);
 
@@ -78,6 +115,15 @@ public class Noticias {
                 lay_noticia.setOrientation(LinearLayout.VERTICAL);
                 lay_noticia.setGravity(Gravity.BOTTOM);
 
+                lay_noticia.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent ver_noticias=new Intent(activity, VerNoticiaActivity.class);
+                        ver_noticias.putExtra("id_noticia",id_noticia);
+                        activity.startActivity(ver_noticias);
+                    }
+                });
+
 
 
                 LinearLayout lay_titulo = new LinearLayout(activity);
@@ -89,7 +135,7 @@ public class Noticias {
 
 
                 //SI la Noticia tiene imagen
-                if(URL_imagen.length()>0 && Util.verificarConexion(activity)) {
+                if(URL_imagen.length()>0 && Conexion.verificar(activity)) {
                     //Carga la imagen de la noticia en el layour contenedor de fondo
                     new CargarImagen(activity, URL_imagen, lay_noticia).execute();
 
@@ -112,10 +158,57 @@ public class Noticias {
 
             } while (noticias.moveToNext());
 
+        }else{
+
+            if(activity.findViewById(App.id_mensaje_no_hay_contenido)==null)
+            {
+                TextView txt_mensaje = new TextView(activity);
+                txt_mensaje.setId(App.id_mensaje_no_hay_contenido);
+                txt_mensaje.setText(App.mensaje_no_hay_contenido);
+                txt_mensaje.setTextColor(Color.parseColor(App.txt_menuBtn_2_color));
+                txt_mensaje.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                txt_mensaje.setTextSize(15);
+                txt_mensaje.setPadding(10,10,10,10);
+                txt_mensaje.setGravity(Gravity.CENTER);
+
+                contenedor.addView(txt_mensaje);
+            }else{
+
+            }
         }
 
 
         db.close();
     }
+
+
+
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
+
+
 
 }

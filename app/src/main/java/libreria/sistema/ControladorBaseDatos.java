@@ -4,18 +4,19 @@ package libreria.sistema;
  * Created by Jhon on 24/03/2015.
  */
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class ControladorBaseDatos extends SQLiteOpenHelper {
 
-    String tablaNoticias ="CREATE TABLE noticias (id INTEGER PRIMARY KEY AUTOINCREMENT, id_noticia INT, titulo TEXT, descripcion TEXT, imagen TEXT)";
     public static String nombreDB="db_okonexion";
+    public static String tabla_noticias="noticias";
+
+    String tablaNoticias ="CREATE TABLE "+ControladorBaseDatos.tabla_noticias+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_noticia INT, titulo TEXT, descripcion TEXT, imagen TEXT,fecha TEXT)";
+
 
     public ControladorBaseDatos(Context contexto, String nombre, CursorFactory factory, int version) {
         super(contexto, nombre, factory, version);
@@ -44,4 +45,10 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
             else
                 return false;
     }
+
+    public static void vaciarTabla(SQLiteDatabase db, String NombreTabla){
+        db.execSQL("DELETE FROM "+NombreTabla);
+    }
+
+
 }
