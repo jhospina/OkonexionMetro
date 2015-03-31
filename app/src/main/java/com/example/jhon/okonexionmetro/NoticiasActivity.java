@@ -25,10 +25,14 @@ import libreria.tipos_contenido.Noticias;
 
 public class NoticiasActivity extends ActionBarActivity {
 
+   ScrollView scroll = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
+
+        scroll = (ScrollView) findViewById(R.id.scroll_noticias);
 
         App.establecerBarraAccion(this, App.txt_menuBtn_2);
 
@@ -56,13 +60,12 @@ public class NoticiasActivity extends ActionBarActivity {
 
 
     public void init(){
+        scroll.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_2)));
         App.noticias_cargadas=0;
     }
 
 
     public void cargarMasNoticias() {
-
-        final ScrollView scroll = (ScrollView) findViewById(R.id.scroll_noticias);
         final TableLayout tabla = (TableLayout) findViewById(R.id.tab_contenedor_noticias);
         final TableRow loading = (TableRow) findViewById(R.id.cargar_noticias);
         loading.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_2)));
@@ -73,8 +76,10 @@ public class NoticiasActivity extends ActionBarActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
+                int acerc=((tabla.getHeight() - scroll.getHeight())-(pantalla.y/App.FACTOR_ACERCAMIENTO_SCROLL));
+
                 //Calcula si el scroll ha llegado al final y carga mas contenido si existe
-                if (scroll.getScrollY() >= ((tabla.getHeight() - scroll.getHeight())-(pantalla.y/10))) {
+                if (scroll.getScrollY() >= acerc) {
 
                     if (Conexion.verificar(NoticiasActivity.this)) {
                         if (!App.descarga_iniciada) {

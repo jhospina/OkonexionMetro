@@ -78,7 +78,7 @@ public class DescargarNoticias extends AsyncTask<Void, Void, Void> {
         String[][] datos = new String[2][2];
         datos[0][0] = "key_app";
         datos[0][1] = App.KEY_APP;
-        datos[1][0] = "cant";
+        datos[1][0] = "cant_om";
         datos[1][1] = String.valueOf(App.noticias_cargadas);
 
 

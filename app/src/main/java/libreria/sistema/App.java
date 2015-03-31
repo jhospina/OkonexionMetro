@@ -47,6 +47,7 @@ public class App {
      */
 
     public static final String URL_DESCARGAR_NOTICIAS = "http://okonexion.com/upanel/public/app/descargar/noticias";
+    public static final String URL_DESCARGAR_INSTITUCIONAL = "http://okonexion.com/upanel/public/app/descargar/institucional";
 
 
 
@@ -56,9 +57,14 @@ public class App {
      * ******************************************************
      */
 
+    //****NOTICIAS*****//
     public static boolean noticias_descargadas =false; //Indica si las noticias ya fueron descargadas
     public static int noticias_cantidad_a_cargar=16;//Indica el numero de noticias a cargar
     public static int noticias_cargadas=0;
+    //****INSTITUCIONAL*****//
+    public static boolean institucional_descargadas =false; //Indica si la informacion institucional ya fueron descargadas
+    public static int institucional_cantidad_a_cargar=16;//Indica el numero de informacion institucional a cargar
+    public static int institucional_cargadas=0;
 
   public static boolean descarga_iniciada=false;//Indica si existe un descarga iniciada
 
@@ -75,6 +81,7 @@ public class App {
     public static final String CONFIG_MOSTRAR_NOMBRE_SOLOLOGO = "soloLogo";
     public static final int W_IMAGEN_NOTICIA=621;
     public static final int H_IMAGEN_NOTICIA=483;
+    public static final int FACTOR_ACERCAMIENTO_SCROLL=15; //Indica el factor de acercamiento para cargar mas contenido al bajar el scroll
 
     public static int id_mensaje_no_hay_contenido=7738283;
 

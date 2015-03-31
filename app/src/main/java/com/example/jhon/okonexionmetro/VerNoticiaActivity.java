@@ -23,11 +23,8 @@ public class VerNoticiaActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_noticia);
 
-
-
         Bundle datos=getIntent().getExtras();
         mostrarNoticia(datos.getInt("id_noticia"));
-
     }
 
 

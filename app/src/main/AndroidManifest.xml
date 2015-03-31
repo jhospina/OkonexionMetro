@@ -29,6 +29,14 @@
             android:name=".VerNoticiaActivity"
             android:label="@string/title_activity_ver_noticia" >
         </activity>
+        <activity
+            android:name=".InstitucionalActivity"
+            android:label="@string/title_activity_institucional" >
+        </activity>
+        <activity
+            android:name=".VerInstitucionalActivity"
+            android:label="@string/title_activity_ver_institucional" >
+        </activity>
     </application>
 
 </manifest>

@@ -26,20 +26,13 @@ import libreria.sistema.ControladorBaseDatos;
 /**
  * Created by Jhon on 26/03/2015.
  */
-public class Noticias {
+public class Noticias extends TipoContenido {
 
-    Activity activity;
-    public int id;
-    public String titulo;
-    public String descripcion;
-    public String urlImagen;
-    public String fecha;
+   public String urlImagen;
 
-    public Noticias(Activity activity)
-    {
-     this.activity=activity;
+    public Noticias(Activity act) {
+        super(act);
     }
-
 
     /** Busca y obtiene una noticia dada por su numero ID
      *
@@ -51,10 +44,10 @@ public class Noticias {
         ControladorBaseDatos dbc = new ControladorBaseDatos(activity, ControladorBaseDatos.nombreDB, null, 1);
         SQLiteDatabase db = dbc.getReadableDatabase();
 
-        Cursor c=db.rawQuery("SELECT * FROM noticias where id='"+id+"'",null);
+        Cursor c=db.rawQuery("SELECT * FROM "+ControladorBaseDatos.tabla_noticias+" where id='"+id+"'",null);
 
         if(c.moveToFirst()){
-            Noticias noticia=new Noticias(activity);
+            Noticias noticia= new Noticias(activity);
             noticia.setId(c.getInt(0));
             noticia.setTitulo(c.getString(2));
             noticia.setDescripcion(c.getString(3));
@@ -172,8 +165,6 @@ public class Noticias {
                 txt_mensaje.setGravity(Gravity.CENTER);
 
                 contenedor.addView(txt_mensaje);
-            }else{
-
             }
         }
 
@@ -182,33 +173,8 @@ public class Noticias {
     }
 
 
-
-
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public void setActivity(Activity activity) {
-        this.activity = activity;
-    }
-
-
-
 
 }

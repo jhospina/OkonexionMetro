@@ -11,6 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import libreria.sistema.App;
+import libreria.tipos_contenido.Institucional;
 
 
 public class MenuPrincipal extends ActionBarActivity {
@@ -38,6 +39,15 @@ public class MenuPrincipal extends ActionBarActivity {
         //Obtiene el componente Layout del Boton 4 "PQR"
         LinearLayout layoutMenu4 = (LinearLayout) findViewById(R.id.lay_menu4);
 
+
+        //Institucional
+        layoutMenu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MenuPrincipal.this,InstitucionalActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //Noticias
         layoutMenu2.setOnClickListener(new View.OnClickListener() {

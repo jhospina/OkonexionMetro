@@ -14,9 +14,10 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
 
     public static String nombreDB="db_okonexion";
     public static String tabla_noticias="noticias";
+    public static String tabla_institucional="institucional";
 
     String tablaNoticias ="CREATE TABLE "+ControladorBaseDatos.tabla_noticias+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_noticia INT, titulo TEXT, descripcion TEXT, imagen TEXT,fecha TEXT)";
-
+    String tablaInstitucional="CREATE TABLE "+ControladorBaseDatos.tabla_institucional+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_institucional INT, titulo TEXT, descripcion TEXT,fecha TEXT)";
 
     public ControladorBaseDatos(Context contexto, String nombre, CursorFactory factory, int version) {
         super(contexto, nombre, factory, version);
@@ -24,15 +25,17 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //TABLA QUE ALMACENA LA CONFIGURACION DE LA APLICACION
         db.execSQL(tablaNoticias);
+        db.execSQL(tablaInstitucional);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) {
         //Se elimina la versión anterior de la tabla
-        db.execSQL("DROP TABLE IF EXISTS noticias");
+        db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_noticias);
         db.execSQL(tablaNoticias);
+        db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_institucional);
+        db.execSQL(tablaInstitucional);
     }
 
 
