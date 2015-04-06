@@ -58,6 +58,15 @@ public class MenuPrincipal extends ActionBarActivity {
             }
         });
 
+        //Encuestas
+        layoutMenu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MenuPrincipal.this,EncuestasActivity.class);
+                startActivity(intent);
+            }
+        });
+
         TableLayout contenedor=(TableLayout)findViewById(R.id.contenedor_menu_principal);
         contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorBarraApp)));
 

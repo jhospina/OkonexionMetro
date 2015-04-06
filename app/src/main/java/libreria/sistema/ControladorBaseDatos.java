@@ -15,9 +15,13 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
     public static String nombreDB="db_okonexion";
     public static String tabla_noticias="noticias";
     public static String tabla_institucional="institucional";
+    public static String tabla_encuestas="encuestas";
+    public static String tabla_encuestas_respuestas="encuestas_respuestas";
 
     String tablaNoticias ="CREATE TABLE "+ControladorBaseDatos.tabla_noticias+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_noticia INT, titulo TEXT, descripcion TEXT, imagen TEXT,fecha TEXT)";
     String tablaInstitucional="CREATE TABLE "+ControladorBaseDatos.tabla_institucional+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_institucional INT, titulo TEXT, descripcion TEXT,fecha TEXT)";
+    String tablaEncuestas="CREATE TABLE "+ControladorBaseDatos.tabla_encuestas+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_encuesta INT, titulo TEXT, descripcion TEXT,fecha TEXT, estado TEXT)";
+    String tablaEncuestasRespuestas="CREATE TABLE "+ControladorBaseDatos.tabla_encuestas_respuestas+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_respuesta INT, id_encuesta INT, nombre TEXT, total INT, estado NUMERIC(1) NOT NULL)";
 
     public ControladorBaseDatos(Context contexto, String nombre, CursorFactory factory, int version) {
         super(contexto, nombre, factory, version);
@@ -27,6 +31,8 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(tablaNoticias);
         db.execSQL(tablaInstitucional);
+        db.execSQL(tablaEncuestas);
+        db.execSQL(tablaEncuestasRespuestas);
     }
 
     @Override
@@ -36,6 +42,10 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
         db.execSQL(tablaNoticias);
         db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_institucional);
         db.execSQL(tablaInstitucional);
+        db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_encuestas);
+        db.execSQL(tablaEncuestas);
+        db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_encuestas_respuestas);
+        db.execSQL(tablaEncuestasRespuestas);
     }
 
 

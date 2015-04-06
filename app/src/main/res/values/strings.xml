@@ -7,4 +7,6 @@
     <string name="title_activity_ver_noticia">VerNoticiaActivity</string>
     <string name="title_activity_institucional">InstitucionalActivity</string>
     <string name="title_activity_ver_institucional">VerInstitucionalActivity</string>
+    <string name="title_activity_encuestas">Encuestas</string>
+    <string name="title_activity_ver_encuesta">VerEncuestaActivity</string>
 </resources>

@@ -37,6 +37,14 @@
             android:name=".VerInstitucionalActivity"
             android:label="@string/title_activity_ver_institucional" >
         </activity>
+        <activity
+            android:name=".EncuestasActivity"
+            android:label="@string/title_activity_encuestas" >
+        </activity>
+        <activity
+            android:name=".VerEncuestaActivity"
+            android:label="@string/title_activity_ver_encuesta" >
+        </activity>
     </application>
 
 </manifest>

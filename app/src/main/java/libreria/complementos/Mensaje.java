@@ -3,6 +3,7 @@ package libreria.complementos;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 /**
  * Created by Jhon on 25/03/2015.
@@ -25,6 +26,14 @@ public class Mensaje {
         });
 
         builder.show();
+    }
+
+
+    public static void toast(Activity activity,String texto){
+        Toast toast =
+                Toast.makeText(activity,
+                        texto, Toast.LENGTH_LONG);
+        toast.show();
     }
 
 }

@@ -32,6 +32,7 @@ public class InstitucionalActivity extends ActionBarActivity {
         setContentView(R.layout.activity_institucional);
 
         scroll = (ScrollView) findViewById(R.id.scroll_institucional);
+        scroll.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_2)));
 
         App.establecerBarraAccion(this, App.txt_menuBtn_1);
 
@@ -57,7 +58,6 @@ public class InstitucionalActivity extends ActionBarActivity {
 
 
     public void init(){
-        scroll.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_1_color)));
         App.institucional_cargadas=0;
     }
 

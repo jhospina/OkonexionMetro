@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -21,6 +23,7 @@ import com.example.jhon.okonexionmetro.VerInstitucionalActivity;
 import libreria.complementos.Util;
 import libreria.conexion.CargarImagen;
 import libreria.conexion.Conexion;
+import libreria.extensiones.ComponenteInterfaz;
 import libreria.sistema.App;
 import libreria.sistema.ControladorBaseDatos;
 
@@ -71,10 +74,9 @@ public class Institucional extends TipoContenido {
 
         ViewGroup contenedor = (ViewGroup) activity.findViewById(layout);
         contenedor.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_1_color)));
+        ComponenteInterfaz interfaz=new ComponenteInterfaz(activity);
 
         Cursor inst = db.rawQuery("SELECT * FROM " + ControladorBaseDatos.tabla_institucional + " ORDER BY id ASC", null);
-
-        Log.e("CANTT", inst.getCount() + "");
 
         if (inst.moveToFirst()) {
 
@@ -94,7 +96,9 @@ public class Institucional extends TipoContenido {
                 //TITULO DE LA institucional
                 TextView txt_titulo = new TextView(activity);
                 txt_titulo.setText(titulo);
-                txt_titulo.setTextColor(Color.parseColor(App.txt_menuBtn_1_color));
+                txt_titulo.setTextSize(18);
+                txt_titulo.setTypeface(null,Typeface.BOLD);
+                txt_titulo.setTextColor(Color.parseColor(App.colorNombreApp));
                 txt_titulo.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 txt_titulo.setGravity(Gravity.CENTER);
 
@@ -104,9 +108,7 @@ public class Institucional extends TipoContenido {
                     fila.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_1_color)));
                 }
 
-                LinearLayout lay_institucional = new LinearLayout(activity);
-                lay_institucional.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_1_color)));
-                lay_institucional.setOrientation(LinearLayout.VERTICAL);
+                LinearLayout lay_institucional = interfaz.crear_LinearLayout(App.colorFondoMenuBt_3,LinearLayout.VERTICAL);
                 lay_institucional.setGravity(Gravity.BOTTOM);
 
                 lay_institucional.setOnClickListener(new View.OnClickListener() {
@@ -119,12 +121,8 @@ public class Institucional extends TipoContenido {
                 });
 
 
-                LinearLayout lay_titulo = new LinearLayout(activity);
-
-                lay_titulo.setOrientation(LinearLayout.VERTICAL);
+                LinearLayout lay_titulo = interfaz.crear_LinearLayout(Util.oscurecerColor(App.colorBarraApp, 40),LinearLayout.VERTICAL);
                 lay_titulo.setGravity(Gravity.BOTTOM);
-                lay_titulo.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_1)));
-
 
                 LinearLayout.LayoutParams pm = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
                 pm.setMargins(3, 3, 3, 3);
@@ -154,16 +152,10 @@ public class Institucional extends TipoContenido {
         } else {
 
             if (activity.findViewById(App.id_mensaje_no_hay_contenido) == null) {
-                TextView txt_mensaje = new TextView(activity);
-                txt_mensaje.setId(App.id_mensaje_no_hay_contenido);
-                txt_mensaje.setText(App.mensaje_no_hay_contenido);
-                txt_mensaje.setTextColor(Color.parseColor(App.txt_menuBtn_1_color));
-                txt_mensaje.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                txt_mensaje.setTextSize(15);
-                txt_mensaje.setPadding(10, 10, 10, 10);
-                txt_mensaje.setGravity(Gravity.CENTER);
-
-                contenedor.addView(txt_mensaje);
+                LinearLayout msj = interfaz.crear_mensajeLogo(App.mensaje_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
+                msj.setId(App.id_mensaje_no_hay_contenido);
+                msj.setGravity(Gravity.CENTER);
+                contenedor.addView(msj, interfaz.parentContentAlign(Gravity.CENTER));
             }
         }
 
