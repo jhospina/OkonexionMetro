@@ -18,7 +18,6 @@ import libreria.extensiones.ComponenteInterfaz;
  */
 public class App {
     public static final String KEY_APP = "I2uqHDXS3RR8lgmaCOG9eZmcO15w7O6x0kxFoKYfbpbCLDdNR"; // Indica la llave unica de identificación de la aplicacion
-    public static int base_info_version = 0; //Indica la versión de la informacion base
 
     /**
      * *******************************************************
@@ -33,7 +32,7 @@ public class App {
     public static String txt_menuBtn_1 = "Institucional";
     public static String txt_menuBtn_2 = "Noticias";
     public static String txt_menuBtn_3 = "Encuestas";
-    public static String txt_menuBtn_4 = "PQR";
+    public static String txt_menuBtn_4 = "PQRS";
     public static String txt_menuBtn_1_color = "#000000";
     public static String txt_menuBtn_2_color = "#000000";
     public static String txt_menuBtn_3_color = "#000000";
@@ -66,8 +65,48 @@ public class App {
     public static String mensaje_selecciona_respuesta ="Selecciona una respuesta";
     public static String mensaje_historial_encuestas="Historial de encuestas";
     public static String mensaje_no_hay_contenido_vuelve_mas_tarde="No hay contenido para mostrar, vuelve más tarde.";
-
-
+    public static String txt_pqr_peticiones="Peticiones";
+    public static String txt_pqr_quejas="Quejas";
+    public static String txt_pqr_reclamos="Reclamos";
+    public static String txt_pqr_sugerencias="Sugerencias";
+    public static String txt_btn_crear_peticion="Crear una petición";
+    public static String txt_btn_crear_queja="Enviar una queja";
+    public static String txt_btn_crear_reclamo="Enviar un reclamo";
+    public static String txt_btn_crear_sugerencia="Enviar una sugerencia";
+    public static String txt_editText_nombre="¿Cuál es tu nombre?";
+    public static String txt_editText_email="¿Cuál es tu email?";
+    public static String txt_editText_asunto="¿Cúal es el asunto de este mensaje?";
+    public static String txt_editText_descripcion_peticion="Describe tu petición aquí...";
+    public static String txt_editText_descripcion_queja="Describe cual es tu queja aquí...";
+    public static String txt_editText_descripcion_reclamo="Describe tu reclamo aquí...";
+    public static String txt_editText_descripcion_sugerencia="Describe tu sugerencia aquí...";
+    public static String txt_info_error="Error";
+    public static String txt_info_nombre_error="Ingresa un nombre valido";
+    public static String txt_info_email_error="Ingresa un correo electrónico valido";
+    public static String txt_info_asunto_error="Ingresa un asunto para el mensaje";
+    public static String txt_info_descripcion_error="Ingresa una descripción para el mensaje";
+    public static String txt_info_peticion_enviada="Tu petición ha sido enviada, proximamente tendras una respuesta.";
+    public static String txt_info_queja_enviada="Tu queja ha sido enviada, Muchas gracias.";
+    public static String txt_info_reclamo_enviada="Tu reclamo ha sido enviado, pronto te constestaremos.";
+    public static String txt_info_sugerencia_enviada="Gracias por enviarnos tu sugerencia. Estamos atentos para mejorar cada día. Muchas gracias.";
+    public static String txt_info_informacion_enviada="Información enviada";
+    public static String txt_btn_aceptar="Aceptar";
+    public static String txt_info_mis_peticiones="Mis peticiones";
+    public static String txt_info_mis_quejas="Mis quejas";
+    public static String txt_info_mis_reclamos="Mis reclamos";
+    public static String txt_info_mis_sugerencias="Mis sugerencias";
+    public static String txt_info_peticion="Petición";
+    public static String txt_info_queja="Queja";
+    public static String txt_info_reclamo="Reclamo";
+    public static String txt_info_sugerencia="Sugerencia";
+    public static String txt_info_asunto="Asunto";
+    public static String txt_info_nombre="Nombre";
+    public static String txt_info_email="Correo electrónico";
+    public static String txt_info_enviar_respuesta="Enviar respuesta";
+    public static String txt_info_escribir_respuesta="Escribir respuesta";
+    public static String txt_info_escribe_tu_respuesta="Escribe tu respuesta aquí...";
+    public static String txt_info_usuario_soporte="Soporte";
+    public static String txt_info_usuario="Usuario";
 
     /**
      * *******************************************************
@@ -80,6 +119,8 @@ public class App {
     public static final String URL_DESCARGAR_ENCUESTA_VIGENTE="http://okonexion.com/upanel/public/app/descargar/encuestas/vigente";
     public static final String URL_DESCARGAR_ENCUESTAS_ARCHIVADAS="http://okonexion.com/upanel/public/app/descargar/encuestas/archivadas";
     public static final String URL_ENVIAR_ENCUESTA_RESPUESTA="http://okonexion.com/upanel/public/app/enviar/encuestas/respuesta";
+    public static final String URL_ENVIAR_PQR="http://okonexion.com/upanel/public/app/enviar/pqr";
+    public static final String URL_RECIBIR_PQR="http://okonexion.com/upanel/public/app/recibir/pqr";
 
     /**
      * *******************************************************

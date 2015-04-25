@@ -45,6 +45,30 @@
             android:name=".VerEncuestaActivity"
             android:label="@string/title_activity_ver_encuesta" >
         </activity>
+        <activity
+            android:name=".PqrActivity"
+            android:label="@string/title_activity_pqr" >
+        </activity>
+        <activity
+            android:name=".pqr.PQR_PeticionesActivity"
+            android:label="@string/title_activity_pqr__peticiones" >
+        </activity>
+        <activity
+            android:name=".pqr.PQR_QuejasActivity"
+            android:label="@string/title_activity_pqr__quejas" >
+        </activity>
+        <activity
+            android:name=".pqr.PQR_ReclamosActivity"
+            android:label="@string/title_activity_pqr__reclamos" >
+        </activity>
+        <activity
+            android:name=".pqr.PQR_SugerenciasActivity"
+            android:label="@string/title_activity_pqr__sugerencias" >
+        </activity>
+        <activity
+            android:name=".pqr.VerPqrActivity"
+            android:label="@string/title_activity_ver_pqr" >
+        </activity>
     </application>
 
 </manifest>

@@ -67,6 +67,15 @@ public class MenuPrincipal extends ActionBarActivity {
             }
         });
 
+        //PQR
+        layoutMenu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MenuPrincipal.this,PqrActivity.class);
+                startActivity(intent);
+            }
+        });
+
         TableLayout contenedor=(TableLayout)findViewById(R.id.contenedor_menu_principal);
         contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorBarraApp)));
 

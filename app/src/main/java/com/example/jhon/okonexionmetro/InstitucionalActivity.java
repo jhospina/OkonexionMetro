@@ -32,7 +32,7 @@ public class InstitucionalActivity extends ActionBarActivity {
         setContentView(R.layout.activity_institucional);
 
         scroll = (ScrollView) findViewById(R.id.scroll_institucional);
-        scroll.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_2)));
+        scroll.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_1)));
 
         App.establecerBarraAccion(this, App.txt_menuBtn_1);
 

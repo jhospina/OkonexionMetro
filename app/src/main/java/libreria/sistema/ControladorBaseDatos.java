@@ -12,16 +12,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ControladorBaseDatos extends SQLiteOpenHelper {
 
-    public static String nombreDB="db_okonexion";
+    public static String nombreDB="db_okonexion22";
     public static String tabla_noticias="noticias";
     public static String tabla_institucional="institucional";
     public static String tabla_encuestas="encuestas";
     public static String tabla_encuestas_respuestas="encuestas_respuestas";
+    public static String tabla_pqr="pqr";
+
 
     String tablaNoticias ="CREATE TABLE "+ControladorBaseDatos.tabla_noticias+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_noticia INT, titulo TEXT, descripcion TEXT, imagen TEXT,fecha TEXT)";
     String tablaInstitucional="CREATE TABLE "+ControladorBaseDatos.tabla_institucional+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_institucional INT, titulo TEXT, descripcion TEXT,fecha TEXT)";
     String tablaEncuestas="CREATE TABLE "+ControladorBaseDatos.tabla_encuestas+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_encuesta INT, titulo TEXT, descripcion TEXT,fecha TEXT, estado TEXT)";
     String tablaEncuestasRespuestas="CREATE TABLE "+ControladorBaseDatos.tabla_encuestas_respuestas+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_respuesta INT, id_encuesta INT, nombre TEXT, total INT, estado NUMERIC(1) NOT NULL)";
+    String tablaPqr="CREATE TABLE "+ControladorBaseDatos.tabla_pqr+" (id INTEGER PRIMARY KEY AUTOINCREMENT, id_pqr INT, id_padre INT, usuario TEXT, nombre TEXT, email TEXT, asunto TEXT, descripcion TEXT, tipo TEXT, fecha TEXT)";
+
 
     public ControladorBaseDatos(Context contexto, String nombre, CursorFactory factory, int version) {
         super(contexto, nombre, factory, version);
@@ -33,6 +37,7 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
         db.execSQL(tablaInstitucional);
         db.execSQL(tablaEncuestas);
         db.execSQL(tablaEncuestasRespuestas);
+        db.execSQL(tablaPqr);
     }
 
     @Override
@@ -46,6 +51,8 @@ public class ControladorBaseDatos extends SQLiteOpenHelper {
         db.execSQL(tablaEncuestas);
         db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_encuestas_respuestas);
         db.execSQL(tablaEncuestasRespuestas);
+        db.execSQL("DROP TABLE IF EXISTS "+ControladorBaseDatos.tabla_pqr);
+        db.execSQL(tablaPqr);
     }
 
 

@@ -82,7 +82,7 @@ public class Conexion {
         } catch (JSONException e) {
         }
 
-        Log.e("JSON", result);
+       // Log.e("JSON", result);
 
         return json;
     }

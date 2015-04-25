@@ -6,11 +6,14 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -90,7 +93,21 @@ public class ComponenteInterfaz {
     }
 
     public Button crear_Button(String texto, String colorTexto) {
-        return crear_Button(texto, colorTexto, null);
+        return crear_Button(texto, colorTexto,(Drawable)null);
+    }
+
+    public Button crear_Button(String texto, String colorTexto, Drawable fondo) {
+        Button button = new Button(activity);
+        button.setText(texto);
+        button.setTextColor(Color.parseColor(colorTexto));
+        if(fondo!=null) {
+            if (fondo.getClass() == GradientDrawable.class) {
+                ((GradientDrawable)fondo).setStroke(1, Color.parseColor(colorTexto));
+                ((GradientDrawable)fondo).setCornerRadius(3);
+            }
+            button.setBackground(fondo);
+        }
+        return button;
     }
 
 
@@ -199,6 +216,17 @@ public class ComponenteInterfaz {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(btn.getLayoutParams().width, btn.getLayoutParams().height);
         params.setMargins(izq,arr,der,aba);
         btn.setLayoutParams(params);
+    }
+
+    public EditText crear_EditText(String placeholder,int tipoEntrada,GradientDrawable background){
+        EditText edit=new EditText(activity);
+        edit.setHint(placeholder);
+        edit.setInputType(tipoEntrada);
+        edit.setLines(1);
+        edit.setPadding(10,5,5,5);
+        if(background!=null)
+        edit.setBackground(background);
+        return edit;
     }
 
 

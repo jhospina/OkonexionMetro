@@ -73,7 +73,7 @@ public class Institucional extends TipoContenido {
         SQLiteDatabase db = dbc.getReadableDatabase();
 
         ViewGroup contenedor = (ViewGroup) activity.findViewById(layout);
-        contenedor.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_1_color)));
+        contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_1)));
         ComponenteInterfaz interfaz=new ComponenteInterfaz(activity);
 
         Cursor inst = db.rawQuery("SELECT * FROM " + ControladorBaseDatos.tabla_institucional + " ORDER BY id ASC", null);
