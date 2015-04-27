@@ -137,15 +137,20 @@ public class VerPqrActivity extends ActionBarActivity {
 
                 interfaz.establecerMargenes(mensaje_respuesta, 0, 10, 0, 0);
 
+
+
+                //Evita que una sugencia se pueda responder... ya que las sugerencias simplemente se una unica vez.
+                if(tipo_pqr.contains(PQR.TIPO_SUGERENCIA))
+                    return;
+
+
                 final Button btn_enviarMensaje = interfaz.crear_Button(App.txt_info_escribir_respuesta, App.txt_menuBtn_4_color, interfaz.crear_Gradient(GradientDrawable.Orientation.TOP_BOTTOM, App.colorFondoMenuBt_4, Util.oscurecerColor(App.colorFondoMenuBt_4, 50)));
                 contenedorPrincipal.addView(btn_enviarMensaje, interfaz.parentContent());
 
                 interfaz.establecerMargenes(btn_enviarMensaje, 0, 10, 0, 0);
 
-                //Indica cuando se debe enviar el mensaje del usuario
-
-
                 btn_enviarMensaje.setOnClickListener(new View.OnClickListener() {
+                    //Indica cuando se debe enviar el mensaje del usuario
                     boolean flagBtn = false;
                     @Override
                     public void onClick(View v) {
