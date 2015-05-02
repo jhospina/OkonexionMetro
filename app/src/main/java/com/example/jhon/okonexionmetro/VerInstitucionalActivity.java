@@ -4,16 +4,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import libreria.complementos.Util;
-import libreria.conexion.CargarImagen;
-import libreria.conexion.Conexion;
 import libreria.sistema.App;
 import libreria.tipos_contenido.Institucional;
 
@@ -46,7 +40,7 @@ public class VerInstitucionalActivity extends ActionBarActivity {
             titulo.setTextColor(Color.parseColor(App.txt_menuBtn_1_color));
 
             TextView fecha = (TextView) findViewById(R.id.txt_fecha_institucional);
-            fecha.setText(App.mensaje_fecha_publicacion+" "+institucional.fecha);
+            fecha.setText(App.txt_info_fecha_publicacion +" "+institucional.fecha);
             fecha.setTextColor(Color.parseColor(App.txt_menuBtn_1_color));
 
             WebView descripcion = (WebView) findViewById(R.id.web_descripcion_institucional);

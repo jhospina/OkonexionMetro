@@ -35,7 +35,7 @@ public class PQR_QuejasActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pqr_tipo);
 
-        App.establecerBarraAccion(this, App.txt_menuBtn_4 + " - " + App.txt_pqr_quejas);
+        App.establecerBarraAccion(this, App.txt_menuBtn_4 + " - " + App.txt_info_pqr_quejas);
 
         apariencia();
 
@@ -57,7 +57,7 @@ public class PQR_QuejasActivity extends ActionBarActivity {
         GradientDrawable fondoBtn=interfaz.crear_Gradient(GradientDrawable.Orientation.TOP_BOTTOM, Util.oscurecerColor(App.colorFondoMenuBt_4,50), Util.oscurecerColor(App.colorFondoMenuBt_4,100));
         fondoBtn.setStroke(1, Color.parseColor(App.txt_menuBtn_4_color));
         fondoBtn.setCornerRadius(3);
-        btn_crear.setBackground(fondoBtn);btn_crear.setText(App.txt_btn_crear_queja);
+        btn_crear.setBackground(fondoBtn);btn_crear.setText(App.txt_info_crear_queja);
         btn_crear.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
 
         //TITULO "MIS quejaES"
@@ -77,7 +77,7 @@ public class PQR_QuejasActivity extends ActionBarActivity {
                 ((LinearLayout)findViewById(R.id.lay_cont_form_crear_pqr)).setVisibility(View.VISIBLE);
 
                 //Carga el formulario en el contenedor indicado encpantalla
-                ArrayList views=pqr.cargarFormularioCreacion(R.id.lay_cont_form_crear_pqr, App.txt_editText_descripcion_queja);
+                ArrayList views=pqr.cargarFormularioCreacion(R.id.lay_cont_form_crear_pqr, App.txt_info_editText_descripcion_queja);
                 final EditText nombre=(EditText)views.get(0);
                 final EditText email=(EditText)views.get(1);
                 final EditText asunto=(EditText)views.get(2);
@@ -96,7 +96,7 @@ public class PQR_QuejasActivity extends ActionBarActivity {
 
                         if(!Conexion.verificar(PQR_QuejasActivity.this))
                         {
-                            Mensaje.alerta(PQR_QuejasActivity.this, App.mensaje_titulo_sin_conexion, App.mensaje_descripcion_sin_conexion, null);
+                            Mensaje.alerta(PQR_QuejasActivity.this, App.txt_info_titulo_sin_conexion, App.txt_info_descripcion_sin_conexion, null);
                             return;
                         }
 
@@ -124,7 +124,7 @@ public class PQR_QuejasActivity extends ActionBarActivity {
 
 
                         ProgressDialog dialog = new ProgressDialog(PQR_QuejasActivity.this);
-                        dialog.setMessage(App.mensaje_enviando);
+                        dialog.setMessage(App.txt_info_enviando);
                         dialog.show();
                         ComunicacionPQR com = new ComunicacionPQR(PQR_QuejasActivity.this, dialog, ComunicacionPQR.Dir.enviar,PQR.TIPO_QUEJA,R.id.lay_cargar_contenido_pqr);
                         com.execute(txt_nombre,txt_email,txt_asunto,txt_descripcion,"0");

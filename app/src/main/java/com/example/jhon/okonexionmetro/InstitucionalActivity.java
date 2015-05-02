@@ -2,20 +2,12 @@ package com.example.jhon.okonexionmetro;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 import libreria.complementos.Mensaje;
-import libreria.complementos.Util;
 import libreria.conexion.Conexion;
 import libreria.conexion.DescargarInstitucional;
 import libreria.sistema.App;
@@ -41,12 +33,12 @@ public class InstitucionalActivity extends ActionBarActivity {
         if (!App.institucional_descargadas) {
 
             if (!Conexion.verificar(this)) {
-                Mensaje.alerta(this, App.mensaje_titulo_sin_conexion, App.mensaje_descripcion_sin_conexion);
+                Mensaje.alerta(this, App.txt_info_titulo_sin_conexion, App.txt_info_descripcion_sin_conexion);
                 cargarInstitucional();
                 App.institucional_descargadas = true;
             } else {
                 ProgressDialog progress = new ProgressDialog(this);
-                progress.setMessage(App.mensaje_cargando);
+                progress.setMessage(App.txt_info_cargando);
                 new DescargarInstitucional(progress, this, R.id.tab_contenedor_institucional).execute();
             }
 

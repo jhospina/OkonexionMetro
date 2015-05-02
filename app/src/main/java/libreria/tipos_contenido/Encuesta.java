@@ -10,7 +10,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import com.example.jhon.okonexionmetro.VerEncuestaActivity;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -113,7 +111,7 @@ public class Encuesta extends TipoContenido {
 
             if (verificarRespuestaUsuario(db, id_encuesta))  //SI EL USUARIO YA CONTESTO LA ENCUESTA
             {
-                cargarResultados(layout, id_encuesta, App.mensaje_encabezado_encuesta_vigente);
+                cargarResultados(layout, id_encuesta, App.txt_info_encabezado_encuesta_vigente);
             } else {
                 /*SI EL USUARIO NO HA CONTESTADO LA ENCUESTA*/
 
@@ -125,7 +123,7 @@ public class Encuesta extends TipoContenido {
 
                 LinearLayout layout_header = interfaz.crear_LinearLayout(App.txt_menuBtn_3_color, LinearLayout.VERTICAL);
                 layout_header.setPadding(10, 10, 10, 10);
-                TextView txt_encabezado = interfaz.crear_TextView(App.mensaje_encabezado_responde_encuesta, App.colorFondoMenuBt_3, 20, Typeface.BOLD);
+                TextView txt_encabezado = interfaz.crear_TextView(App.txt_info_encabezado_responde_encuesta, App.colorFondoMenuBt_3, 20, Typeface.BOLD);
                 txt_encabezado.setGravity(Gravity.CENTER);
                 layout_header.addView(txt_encabezado, interfaz.parentContentAlign(Gravity.CENTER));
 
@@ -151,7 +149,7 @@ public class Encuesta extends TipoContenido {
 
                 LinearLayout layout_msj_resultados = interfaz.crear_LinearLayout(App.colorFondoMenuBt_3, LinearLayout.HORIZONTAL);
                 layout_msj_resultados.setPadding(0, 10, 0, 0);
-                TextView txt_mensaje_resultados = interfaz.crear_TextView(App.mensaje_selecciona_respuesta, App.colorFondoMenuBt_3, 14);
+                TextView txt_mensaje_resultados = interfaz.crear_TextView(App.txt_info_selecciona_respuesta, App.colorFondoMenuBt_3, 14);
                 txt_mensaje_resultados.setPadding(5, 5, 5, 5);
                 txt_mensaje_resultados.setGravity(Gravity.RIGHT);
                 txt_mensaje_resultados.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_3_color)));
@@ -236,7 +234,7 @@ public class Encuesta extends TipoContenido {
                 }
 
 
-                final Button btn_enviar = interfaz.crear_Button(App.mensaje_boton_enviar, App.colorFondoMenuBt_3, App.txt_menuBtn_3_color);
+                final Button btn_enviar = interfaz.crear_Button(App.txt_info_boton_enviar, App.colorFondoMenuBt_3, App.txt_menuBtn_3_color);
                 btn_enviar.setGravity(Gravity.CENTER);
 
                 contenedor_principal.addView(btn_enviar, interfaz.contentContent());
@@ -257,7 +255,7 @@ public class Encuesta extends TipoContenido {
                             contenedor_principal.removeView(btn_enviar);
 
                             //Muestra en pantalla un mensaje de enviadno informacion
-                            LinearLayout cargando = interfaz.crear_ProgressBarLinearLayout(interfaz.crear_TextView(App.mensaje_enviando, App.txt_menuBtn_3_color, 15), LinearLayout.HORIZONTAL);
+                            LinearLayout cargando = interfaz.crear_ProgressBarLinearLayout(interfaz.crear_TextView(App.txt_info_enviando, App.txt_menuBtn_3_color, 15), LinearLayout.HORIZONTAL);
                             contenedor_principal.addView(cargando, interfaz.parentContent());
                             //Envia la respuesta del usuario al servidor
                             new EnviarRespuesta(cargando, layout).execute((seleccion), id_encuesta);
@@ -348,14 +346,14 @@ public class Encuesta extends TipoContenido {
 
             if(!encuesta_vigente.moveToFirst() && contenedor_principal.getChildCount()==1){
                 contenedor_principal.removeAllViews();
-                LinearLayout msj=interfaz.crear_mensajeLogo(App.mensaje_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
+                LinearLayout msj=interfaz.crear_mensajeLogo(App.txt_info_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
                 msj.setGravity(Gravity.CENTER);
                 contenedor_principal.addView(msj,interfaz.parentContentAlign(Gravity.CENTER));
 
             }else{
 
                 if(activity.findViewById(App.id_mensaje_no_hay_contenido)==null) {
-                    TextView msj = interfaz.crear_TextView(App.mensaje_no_hay_contenido, App.txt_menuBtn_3_color, 15);
+                    TextView msj = interfaz.crear_TextView(App.txt_info_no_hay_contenido, App.txt_menuBtn_3_color, 15);
                     msj.setId(App.id_mensaje_no_hay_contenido);
                     msj.setGravity(Gravity.CENTER);
                     msj.setPadding(5, 5, 5, 5);
@@ -412,7 +410,7 @@ public class Encuesta extends TipoContenido {
 
             LinearLayout layout_msj_resultados = interfaz.crear_LinearLayout(App.colorFondoMenuBt_3, LinearLayout.HORIZONTAL);
 
-            TextView txt_mensaje_resultados = interfaz.crear_TextView(App.mensaje_resultados, App.colorFondoMenuBt_3, 14);
+            TextView txt_mensaje_resultados = interfaz.crear_TextView(App.txt_info_resultados, App.colorFondoMenuBt_3, 14);
             txt_mensaje_resultados.setPadding(5, 5, 5, 5);
             txt_mensaje_resultados.setGravity(Gravity.RIGHT);
             txt_mensaje_resultados.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_3_color)));
@@ -533,11 +531,11 @@ public class Encuesta extends TipoContenido {
                 layout.setOrientation(LinearLayout.VERTICAL);
                 layout.setPadding(0, 10, 0, 0);
                 ComponenteInterfaz interfaz = new ComponenteInterfaz(activity);
-                TextView msj_enviado = interfaz.crear_TextView(App.mensaje_respuesta_enviada, App.txt_menuBtn_3_color, 18);
+                TextView msj_enviado = interfaz.crear_TextView(App.txt_info_respuesta_enviada, App.txt_menuBtn_3_color, 18);
                 msj_enviado.setGravity(Gravity.CENTER);
                 layout.addView(msj_enviado, interfaz.parentContent());
                 interfaz.establecerMargenes(msj_enviado, 0, 5, 0, 0);
-                Button boton_ver = interfaz.crear_Button(App.mensaje_ver_resultados, App.colorNombreApp, App.colorBarraApp);
+                Button boton_ver = interfaz.crear_Button(App.txt_info_ver_resultados, App.colorNombreApp, App.colorBarraApp);
                 boton_ver.setGravity(Gravity.CENTER);
                 layout.addView(boton_ver, interfaz.contentContent());
                 interfaz.establecerMargenes(boton_ver, 0, 10, 0, 0);
@@ -545,7 +543,7 @@ public class Encuesta extends TipoContenido {
                 boton_ver.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        cargarResultados(contenedorPrincipal, id_encuesta, App.mensaje_encabezado_encuesta_vigente);
+                        cargarResultados(contenedorPrincipal, id_encuesta, App.txt_info_encabezado_encuesta_vigente);
                     }
                 });
 
@@ -567,7 +565,7 @@ public class Encuesta extends TipoContenido {
 
             //datos ordanos en un array para enviar al servidor
             datos[0][0] = "key_app";
-            datos[0][1] = App.KEY_APP;
+            datos[0][1] = App.keyApp;
             datos[1][0] = "respuesta";
             datos[1][1] = String.valueOf(respuesta);
             datos[2][0] = "id_encuesta";

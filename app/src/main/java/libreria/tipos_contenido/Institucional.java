@@ -8,8 +8,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +19,6 @@ import android.widget.TextView;
 import com.example.jhon.okonexionmetro.VerInstitucionalActivity;
 
 import libreria.complementos.Util;
-import libreria.conexion.CargarImagen;
-import libreria.conexion.Conexion;
 import libreria.extensiones.ComponenteInterfaz;
 import libreria.sistema.App;
 import libreria.sistema.ControladorBaseDatos;
@@ -152,7 +148,7 @@ public class Institucional extends TipoContenido {
         } else {
 
             if (activity.findViewById(App.id_mensaje_no_hay_contenido) == null) {
-                LinearLayout msj = interfaz.crear_mensajeLogo(App.mensaje_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
+                LinearLayout msj = interfaz.crear_mensajeLogo(App.txt_info_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
                 msj.setId(App.id_mensaje_no_hay_contenido);
                 msj.setGravity(Gravity.CENTER);
                 contenedor.addView(msj, interfaz.parentContentAlign(Gravity.CENTER));

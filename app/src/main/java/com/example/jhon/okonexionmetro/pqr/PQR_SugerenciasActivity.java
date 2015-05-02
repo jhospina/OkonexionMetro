@@ -32,7 +32,7 @@ public class PQR_SugerenciasActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pqr_tipo);
 
-        App.establecerBarraAccion(this, App.txt_menuBtn_4+" - "+App.txt_pqr_sugerencias);
+        App.establecerBarraAccion(this, App.txt_menuBtn_4+" - "+App.txt_info_pqr_sugerencias);
 
         apariencia();
 
@@ -54,7 +54,7 @@ public class PQR_SugerenciasActivity extends ActionBarActivity {
         GradientDrawable fondoBtn=interfaz.crear_Gradient(GradientDrawable.Orientation.TOP_BOTTOM, Util.oscurecerColor(App.colorFondoMenuBt_4,50), Util.oscurecerColor(App.colorFondoMenuBt_4,100));
         fondoBtn.setStroke(1, Color.parseColor(App.txt_menuBtn_4_color));
         fondoBtn.setCornerRadius(3);
-        btn_crear.setBackground(fondoBtn);btn_crear.setText(App.txt_btn_crear_sugerencia);
+        btn_crear.setBackground(fondoBtn);btn_crear.setText(App.txt_info_btn_crear_sugerencia);
         btn_crear.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
 
         //TITULO "MIS sugerencias"
@@ -74,7 +74,7 @@ public class PQR_SugerenciasActivity extends ActionBarActivity {
                 ((LinearLayout)findViewById(R.id.lay_cont_form_crear_pqr)).setVisibility(View.VISIBLE);
 
                 //Carga el formulario en el contenedor indicado encpantalla
-                ArrayList views=pqr.cargarFormularioCreacion(R.id.lay_cont_form_crear_pqr, App.txt_editText_descripcion_sugerencia);
+                ArrayList views=pqr.cargarFormularioCreacion(R.id.lay_cont_form_crear_pqr, App.txt_info_editText_descripcion_sugerencia);
                 final EditText nombre=(EditText)views.get(0);
                 final EditText email=(EditText)views.get(1);
                 final EditText asunto=(EditText)views.get(2);
@@ -93,7 +93,7 @@ public class PQR_SugerenciasActivity extends ActionBarActivity {
 
                         if(!Conexion.verificar(PQR_SugerenciasActivity.this))
                         {
-                            Mensaje.alerta(PQR_SugerenciasActivity.this, App.mensaje_titulo_sin_conexion, App.mensaje_descripcion_sin_conexion, null);
+                            Mensaje.alerta(PQR_SugerenciasActivity.this, App.txt_info_titulo_sin_conexion, App.txt_info_descripcion_sin_conexion, null);
                             return;
                         }
 
@@ -121,7 +121,7 @@ public class PQR_SugerenciasActivity extends ActionBarActivity {
 
 
                         ProgressDialog dialog = new ProgressDialog(PQR_SugerenciasActivity.this);
-                        dialog.setMessage(App.mensaje_enviando);
+                        dialog.setMessage(App.txt_info_enviando);
                         dialog.show();
                         ComunicacionPQR com = new ComunicacionPQR(PQR_SugerenciasActivity.this, dialog, ComunicacionPQR.Dir.enviar,PQR.TIPO_SUGERENCIA,R.id.lay_cargar_contenido_pqr);
                         com.execute(txt_nombre,txt_email,txt_asunto,txt_descripcion,"0");

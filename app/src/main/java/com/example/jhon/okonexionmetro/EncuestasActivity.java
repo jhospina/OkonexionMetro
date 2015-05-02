@@ -11,15 +11,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import libreria.complementos.Mensaje;
 import libreria.complementos.Util;
 import libreria.conexion.Conexion;
 import libreria.conexion.DescargarEncuesta;
-import libreria.conexion.DescargarNoticias;
 import libreria.extensiones.ComponenteInterfaz;
 import libreria.sistema.App;
 import libreria.tipos_contenido.Encuesta;
@@ -42,7 +39,7 @@ public class EncuestasActivity extends ActionBarActivity {
 
         if (!Conexion.verificar(this)) {
             ((LinearLayout)findViewById(R.id.lay_indicadorCarga_encuesta_vigente)).setVisibility(View.GONE);
-            Mensaje.toast(this,App.mensaje_titulo_sin_conexion);
+            Mensaje.toast(this,App.txt_info_titulo_sin_conexion);
             Encuesta encuesta=new Encuesta(this);
             encuesta.cargarEncuestaVigente(R.id.lay_encuesta_vigente);
             encuesta.cargarEncuestasArchivadas(R.id.lay_encuestas_archivadas);
@@ -70,14 +67,14 @@ public class EncuestasActivity extends ActionBarActivity {
         interfaz=new ComponenteInterfaz(this);
 
         TextView txt_cargando=(TextView) findViewById(R.id.txt_buscando_encuesta_vigente);
-        txt_cargando.setText(App.mensaje_buscando_encuesta_vigente);
+        txt_cargando.setText(App.txt_info_buscando_encuesta_vigente);
         txt_cargando.setTextColor(Color.parseColor(App.txt_menuBtn_3_color));
 
         encuesta=new Encuesta(this);
 
         LinearLayout layout_header = interfaz.crear_LinearLayout(App.txt_menuBtn_3_color, LinearLayout.VERTICAL);
         layout_header.setPadding(10, 10, 10, 10);
-        TextView txt_encabezado = interfaz.crear_TextView(App.mensaje_historial_encuestas, App.colorFondoMenuBt_3, 20, Typeface.BOLD);
+        TextView txt_encabezado = interfaz.crear_TextView(App.txt_info_historial_encuestas, App.colorFondoMenuBt_3, 20, Typeface.BOLD);
         txt_encabezado.setGravity(Gravity.CENTER);
         layout_header.addView(txt_encabezado, interfaz.parentContentAlign(Gravity.CENTER));
 

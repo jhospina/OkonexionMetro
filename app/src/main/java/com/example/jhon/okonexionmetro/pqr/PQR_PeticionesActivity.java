@@ -32,7 +32,7 @@ public class PQR_PeticionesActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pqr_tipo);
 
-        App.establecerBarraAccion(this, App.txt_menuBtn_4+" - "+App.txt_pqr_peticiones);
+        App.establecerBarraAccion(this, App.txt_menuBtn_4+" - "+App.txt_info_pqr_peticiones);
 
         apariencia();
 
@@ -55,7 +55,7 @@ public class PQR_PeticionesActivity extends ActionBarActivity {
         fondoBtn.setStroke(1, Color.parseColor(App.txt_menuBtn_4_color));
         fondoBtn.setCornerRadius(3);
         btn_crear.setBackground(fondoBtn);
-        btn_crear.setText(App.txt_btn_crear_peticion);
+        btn_crear.setText(App.txt_info_btn_crear_peticion);
         btn_crear.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
 
         //TITULO "MIS PETICIONES"
@@ -75,7 +75,7 @@ public class PQR_PeticionesActivity extends ActionBarActivity {
                 ((LinearLayout)findViewById(R.id.lay_cont_form_crear_pqr)).setVisibility(View.VISIBLE);
 
                 //Carga el formulario en el contenedor indicado encpantalla
-                ArrayList views=pqr.cargarFormularioCreacion(R.id.lay_cont_form_crear_pqr, App.txt_editText_descripcion_peticion);
+                ArrayList views=pqr.cargarFormularioCreacion(R.id.lay_cont_form_crear_pqr, App.txt_info_editText_descripcion_peticion);
                 final EditText nombre=(EditText)views.get(0);
                 final EditText email=(EditText)views.get(1);
                 final EditText asunto=(EditText)views.get(2);
@@ -94,7 +94,7 @@ public class PQR_PeticionesActivity extends ActionBarActivity {
 
                         if(!Conexion.verificar(PQR_PeticionesActivity.this))
                         {
-                            Mensaje.alerta(PQR_PeticionesActivity.this, App.mensaje_titulo_sin_conexion, App.mensaje_descripcion_sin_conexion, null);
+                            Mensaje.alerta(PQR_PeticionesActivity.this, App.txt_info_titulo_sin_conexion, App.txt_info_descripcion_sin_conexion, null);
                             return;
                         }
 
@@ -122,7 +122,7 @@ public class PQR_PeticionesActivity extends ActionBarActivity {
 
 
                         ProgressDialog dialog = new ProgressDialog(PQR_PeticionesActivity.this);
-                        dialog.setMessage(App.mensaje_enviando);
+                        dialog.setMessage(App.txt_info_enviando);
                         dialog.show();
                         ComunicacionPQR com = new ComunicacionPQR(PQR_PeticionesActivity.this, dialog, ComunicacionPQR.Dir.enviar,PQR.TIPO_PETICION,R.id.lay_cargar_contenido_pqr);
                         com.execute(txt_nombre,txt_email,txt_asunto,txt_descripcion,"0");

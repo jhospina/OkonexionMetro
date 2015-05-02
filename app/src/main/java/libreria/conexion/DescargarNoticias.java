@@ -4,12 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableRow;
-
-import com.example.jhon.okonexionmetro.NoticiasActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,10 +70,10 @@ public class DescargarNoticias extends AsyncTask<Void, Void, Void> {
         if (!App.noticias_descargadas)
             ControladorBaseDatos.vaciarTabla(db, ControladorBaseDatos.tabla_noticias);
 
-        //Prepara los datos para enviar al servidor, como peticion envia la KEY_APP de la aplicacion
+        //Prepara los datos para enviar al servidor, como peticion envia la keyApp de la aplicacion
         String[][] datos = new String[2][2];
         datos[0][0] = "key_app";
-        datos[0][1] = App.KEY_APP;
+        datos[0][1] = App.keyApp;
         datos[1][0] = "cant_om";
         datos[1][1] = String.valueOf(App.noticias_cargadas);
 

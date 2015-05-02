@@ -3,8 +3,6 @@ package libreria.conexion;
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 
 import org.json.JSONException;
@@ -89,10 +87,10 @@ public class DescargarEncuesta extends AsyncTask<String, Void, Void> {
 
     private Void descargar_encuesta_vigente(SQLiteDatabase db) {
 
-        //Prepara los datos para enviar al servidor, como peticion envia la KEY_APP de la aplicacion
+        //Prepara los datos para enviar al servidor, como peticion envia la keyApp de la aplicacion
         String[][] datos = new String[1][2];
         datos[0][0] = "key_app";
-        datos[0][1] = App.KEY_APP;
+        datos[0][1] = App.keyApp;
 
 
         //Se conecta al servidor para obtener los datos de las institucional
@@ -145,10 +143,10 @@ public class DescargarEncuesta extends AsyncTask<String, Void, Void> {
 
     private Void descargar_encuestas_archivadas(SQLiteDatabase db) {
 
-        //Prepara los datos para enviar al servidor, como peticion envia la KEY_APP de la aplicacion
+        //Prepara los datos para enviar al servidor, como peticion envia la keyApp de la aplicacion
         String[][] datos = new String[2][2];
         datos[0][0] = "key_app";
-        datos[0][1] = App.KEY_APP;
+        datos[0][1] = App.keyApp;
         datos[1][0] = "cant_om";
         datos[1][1] = String.valueOf(App.encuestas_cargadas);
 

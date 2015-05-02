@@ -38,7 +38,7 @@ public class Mensaje {
             }
         }
 
-        builder.setNeutralButton(App.txt_btn_aceptar, new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(App.txt_info_btn_aceptar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();

@@ -47,7 +47,7 @@ public class VerNoticiaActivity extends ActionBarActivity {
             titulo.setTextColor(Color.parseColor(App.txt_menuBtn_2_color));
 
             TextView fecha = (TextView) findViewById(R.id.txt_fecha_noticia);
-            fecha.setText(App.mensaje_fecha_publicacion+" "+noticia.fecha);
+            fecha.setText(App.txt_info_fecha_publicacion +" "+noticia.fecha);
             fecha.setTextColor(Color.parseColor(App.txt_menuBtn_2_color));
 
             WebView descripcion = (WebView) findViewById(R.id.web_descripcion_noticia);

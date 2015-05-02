@@ -9,10 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -166,7 +163,7 @@ public class VerPqrActivity extends ActionBarActivity {
                              */
 
                             if (!Conexion.verificar(VerPqrActivity.this)) {
-                                Mensaje.alerta(VerPqrActivity.this, App.mensaje_titulo_sin_conexion, App.mensaje_descripcion_sin_conexion, null);
+                                Mensaje.alerta(VerPqrActivity.this, App.txt_info_titulo_sin_conexion, App.txt_info_descripcion_sin_conexion, null);
                                 return;
                             }
 
@@ -175,7 +172,7 @@ public class VerPqrActivity extends ActionBarActivity {
                                 return;
                             }
                             ProgressDialog dialog = new ProgressDialog(VerPqrActivity.this);
-                            dialog.setMessage(App.mensaje_enviando);
+                            dialog.setMessage(App.txt_info_enviando);
                             dialog.show();
                             ComunicacionPQR com = new ComunicacionPQR(VerPqrActivity.this, dialog, ComunicacionPQR.Dir.enviar, tipo_pqr);
                             com.execute(str_nombre, str_email, str_asunto, mensaje_respuesta.getText().toString(), id_pqr + "");

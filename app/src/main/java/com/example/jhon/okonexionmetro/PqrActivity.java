@@ -19,7 +19,6 @@ import com.example.jhon.okonexionmetro.pqr.PQR_SugerenciasActivity;
 import libreria.complementos.Util;
 import libreria.conexion.ComunicacionPQR;
 import libreria.sistema.App;
-import libreria.tipos_contenido.PQR;
 
 
 public class PqrActivity extends ActionBarActivity {
@@ -98,10 +97,10 @@ public class PqrActivity extends ActionBarActivity {
         TextView txt_menu_3=(TextView)findViewById(R.id.txt_btn3_pqr);
         TextView txt_menu_4=(TextView)findViewById(R.id.txt_btn4_pqr);
 
-        txt_menu_1.setText(App.txt_pqr_peticiones);
-        txt_menu_2.setText(App.txt_pqr_quejas);
-        txt_menu_3.setText(App.txt_pqr_reclamos);
-        txt_menu_4.setText(App.txt_pqr_sugerencias);
+        txt_menu_1.setText(App.txt_info_pqr_peticiones);
+        txt_menu_2.setText(App.txt_info_pqr_quejas);
+        txt_menu_3.setText(App.txt_info_pqr_reclamos);
+        txt_menu_4.setText(App.txt_info_pqr_sugerencias);
 
         //Color del texto de los botones
         txt_menu_1.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));

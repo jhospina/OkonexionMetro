@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -159,7 +158,7 @@ public class Noticias extends TipoContenido {
                 if (contenedor.getChildCount() > 1) {
                     TextView txt_mensaje = new TextView(activity);
                     txt_mensaje.setId(App.id_mensaje_no_hay_contenido);
-                    txt_mensaje.setText(App.mensaje_no_hay_contenido);
+                    txt_mensaje.setText(App.txt_info_no_hay_contenido);
                     txt_mensaje.setTextColor(Color.parseColor(App.txt_menuBtn_2_color));
                     txt_mensaje.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                     txt_mensaje.setTextSize(15);
@@ -169,7 +168,7 @@ public class Noticias extends TipoContenido {
                     contenedor.addView(txt_mensaje);
                 } else {
                     ComponenteInterfaz interfaz = new ComponenteInterfaz(activity);
-                    LinearLayout msj = interfaz.crear_mensajeLogo(App.mensaje_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
+                    LinearLayout msj = interfaz.crear_mensajeLogo(App.txt_info_no_hay_contenido_vuelve_mas_tarde, App.txt_menuBtn_3_color);
                     msj.setId(App.id_mensaje_no_hay_contenido);
                     msj.setGravity(Gravity.CENTER);
                     contenedor.addView(msj, interfaz.parentContentAlign(Gravity.CENTER));

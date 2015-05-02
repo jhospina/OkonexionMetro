@@ -70,10 +70,10 @@ public class DescargarInstitucional extends AsyncTask<Void, Void, Void> {
         if (!App.institucional_descargadas)
             ControladorBaseDatos.vaciarTabla(db, ControladorBaseDatos.tabla_institucional);
 
-        //Prepara los datos para enviar al servidor, como peticion envia la KEY_APP de la aplicacion
+        //Prepara los datos para enviar al servidor, como peticion envia la keyApp de la aplicacion
         String[][] datos = new String[1][2];
         datos[0][0] = "key_app";
-        datos[0][1] = App.KEY_APP;
+        datos[0][1] = App.keyApp;
 
 
         //Se conecta al servidor para obtener los datos de las institucional

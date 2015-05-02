@@ -20,11 +20,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.jhon.okonexionmetro.R;
-import com.example.jhon.okonexionmetro.VerInstitucionalActivity;
 import com.example.jhon.okonexionmetro.pqr.VerPqrActivity;
 
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
 
 import libreria.extensiones.ComponenteInterfaz;
 import libreria.sistema.App;
@@ -108,11 +106,11 @@ public class PQR extends TipoContenido {
         back.setStroke(3, Color.parseColor(App.colorBarraApp));
         back.setCornerRadius(5);
 
-        EditText nombre = interfaz.crear_EditText(App.txt_editText_nombre, InputType.TYPE_TEXT_VARIATION_PERSON_NAME, back);
+        EditText nombre = interfaz.crear_EditText(App.txt_info_editText_nombre, InputType.TYPE_TEXT_VARIATION_PERSON_NAME, back);
         nombre.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
-        EditText email = interfaz.crear_EditText(App.txt_editText_email, InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS, back);
+        EditText email = interfaz.crear_EditText(App.txt_info_editText_email, InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS, back);
         email.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
-        EditText asunto = interfaz.crear_EditText(App.txt_editText_asunto, InputType.TYPE_CLASS_TEXT, back);
+        EditText asunto = interfaz.crear_EditText(App.txt_info_editText_asunto, InputType.TYPE_CLASS_TEXT, back);
         asunto.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
         EditText descripcion = interfaz.crear_EditText(descripcionHints, InputType.TYPE_TEXT_FLAG_MULTI_LINE, back);
         descripcion.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
@@ -122,7 +120,7 @@ public class PQR extends TipoContenido {
         descripcion.setGravity(Gravity.TOP | Gravity.LEFT);
 
 
-        Button btn_enviar = interfaz.crear_Button(App.mensaje_boton_enviar, App.txt_menuBtn_4_color, interfaz.crear_Gradient(GradientDrawable.Orientation.TOP_BOTTOM, Util.oscurecerColor(App.colorFondoMenuBt_4, 50), Util.oscurecerColor(App.colorFondoMenuBt_4, 100)));
+        Button btn_enviar = interfaz.crear_Button(App.txt_info_boton_enviar, App.txt_menuBtn_4_color, interfaz.crear_Gradient(GradientDrawable.Orientation.TOP_BOTTOM, Util.oscurecerColor(App.colorFondoMenuBt_4, 50), Util.oscurecerColor(App.colorFondoMenuBt_4, 100)));
         btn_enviar.setGravity(Gravity.CENTER);
 
 

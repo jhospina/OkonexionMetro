@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,7 +67,7 @@ public class ComunicacionPQR extends AsyncTask<String, Void, Void> {
         if(layoutCarga==0 && Dir.enviar == this.dir) {
             activity.finish();
             Intent intent=activity.getIntent();
-            intent.putExtra("msj",App.mensaje_respuesta_enviada);
+            intent.putExtra("msj",App.txt_info_respuesta_enviada);
             activity.startActivity(intent);
             return;
         }
@@ -163,10 +162,10 @@ public class ComunicacionPQR extends AsyncTask<String, Void, Void> {
         String descripcion = params[3];
         String id_padre = params[4];
 
-        //Prepara los datos para enviar al servidor, como peticion envia la KEY_APP de la aplicacion
+        //Prepara los datos para enviar al servidor, como peticion envia la keyApp de la aplicacion
         String[][] datos = new String[8][2];
         datos[0][0] = "key_app";
-        datos[0][1] = App.KEY_APP;
+        datos[0][1] = App.keyApp;
         datos[1][0] = "dispositivo";
         datos[1][1] = dispositivo;
         datos[2][0] = "nombre";
