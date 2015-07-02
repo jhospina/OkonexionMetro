@@ -74,7 +74,7 @@ public class Noticias extends TipoContenido {
         ViewGroup contenedor = (ViewGroup) activity.findViewById(layout);
         contenedor.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_2)));
 
-        Cursor noticias = db.rawQuery("SELECT * FROM " + ControladorBaseDatos.tabla_noticias + " ORDER BY id ASC LIMIT " + (App.noticias_cargadas) + "," + App.noticias_cantidad_a_cargar, null);
+        Cursor noticias = db.rawQuery("SELECT * FROM " + ControladorBaseDatos.tabla_noticias + " ORDER BY id DESC LIMIT " + (App.noticias_cargadas) + "," + App.noticias_cantidad_a_cargar, null);
 
         if (noticias.moveToFirst()) {
 
