@@ -101,7 +101,7 @@ public class Institucional extends TipoContenido {
 
                 if (n % 2 != 0) {
                     fila = new TableRow(activity);
-                    fila.setBackground(new ColorDrawable(Color.parseColor(App.txt_menuBtn_1_color)));
+                    fila.setBackground(new ColorDrawable(Color.parseColor(App.colorFondoMenuBt_1)));
                 }
 
                 LinearLayout lay_institucional = interfaz.crear_LinearLayout(App.colorFondoMenuBt_3,LinearLayout.VERTICAL);
@@ -130,7 +130,7 @@ public class Institucional extends TipoContenido {
                 //Posiciona a dos columnas el ultimo elemento
                 if (inst.getCount() % 2 != 0 && inst.isLast()) {
                     TableRow.LayoutParams params = new TableRow.LayoutParams();
-                    params.span=2;
+                    params.span = (n > 1) ? 2 : 1;
                     params.width=pantalla.x;
                     params.height= (int) (altura_cont/1.5);
                    fila.addView(lay_institucional, params);

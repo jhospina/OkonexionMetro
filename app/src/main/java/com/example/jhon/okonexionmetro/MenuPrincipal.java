@@ -1,17 +1,30 @@
 package com.example.jhon.okonexionmetro;
 
+import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import java.util.Random;
+
+import libreria.servicios.ServicioNoticias;
 import libreria.sistema.App;
 import libreria.tipos_contenido.Institucional;
+import libreria.tipos_contenido.Noticias;
 
 
 public class MenuPrincipal extends ActionBarActivity {
@@ -19,15 +32,11 @@ public class MenuPrincipal extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_menu_principal);
-
         App.establecerBarraAccion(this,null);
-
         establecerApariencia();
 
     }
-
 
     private void establecerApariencia(){
         //Obtiene el componente Layout del Boton 1 "Institucional"
@@ -44,6 +53,9 @@ public class MenuPrincipal extends ActionBarActivity {
         layoutMenu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 Intent intent=new Intent(MenuPrincipal.this,InstitucionalActivity.class);
                 startActivity(intent);
             }
@@ -100,6 +112,8 @@ public class MenuPrincipal extends ActionBarActivity {
         txt_menu_3.setTextColor(Color.parseColor(App.txt_menuBtn_3_color));
         txt_menu_4.setTextColor(Color.parseColor(App.txt_menuBtn_4_color));
     }
+
+
 
 }
 

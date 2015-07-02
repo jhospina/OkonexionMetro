@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MenuPrincipal"
-            android:label="@string/nombreApp">
+            android:label="@string/nombreApp" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,6 +69,12 @@
             android:name=".pqr.VerPqrActivity"
             android:label="@string/title_activity_ver_pqr" >
         </activity>
+
+        <service
+            android:name="libreria.servicios.ServicioNoticias"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
