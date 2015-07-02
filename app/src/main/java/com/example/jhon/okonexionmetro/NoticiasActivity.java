@@ -1,11 +1,13 @@
 package com.example.jhon.okonexionmetro;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ScrollView;
@@ -16,6 +18,7 @@ import libreria.complementos.Mensaje;
 import libreria.complementos.Util;
 import libreria.conexion.Conexion;
 import libreria.conexion.DescargarNoticias;
+import libreria.servicios.ServicioNoticias;
 import libreria.sistema.App;
 import libreria.tipos_contenido.Noticias;
 
@@ -35,6 +38,7 @@ public class NoticiasActivity extends ActionBarActivity {
 
         init();
 
+
         if (!App.noticias_descargadas) {
 
             if (!Conexion.verificar(this)) {
@@ -53,6 +57,9 @@ public class NoticiasActivity extends ActionBarActivity {
         }
 
         cargarMasNoticias();
+
+        startService(new Intent(this,
+                ServicioNoticias.class));
     }
 
 
