@@ -5,14 +5,14 @@ package libreria.sistema;
  */
 public class AppConfig {
 
-    public static String keyApp = "B5QT17FTFNWIDUC25U4ZN68YPHB1G3SHV02K685JQIMLC567"; // Indica la llave unica de identificación de la aplicacion
+    public static String keyApp = "I2uqHDXS3RR8lgmaCOG9eZmcO15w7O6x0kxFoKYfbpbCLDdNR"; // Indica la llave unica de identificación de la aplicacion
 
     /**
      * *******************************************************
      * CONFIGURACION DE BASICA DE LA APLICACION (MODIFICABLE)
      * ******************************************************
      */
-    public static String nombreApp = "Appsthergo Technologies";
+    public static String nombreApp = "Okonexion";
     public static String colorBarraApp = "#CE0202";
     public static String colorNombreApp = "#FFFFFF";
     public static String mostrarNombre = "textoLogo";

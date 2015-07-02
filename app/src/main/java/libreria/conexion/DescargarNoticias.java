@@ -2,17 +2,14 @@ package libreria.conexion;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import libreria.servicios.ServicioNoticias;
 import libreria.sistema.App;
 import libreria.sistema.ControladorBaseDatos;
 import libreria.tipos_contenido.Noticias;
@@ -56,8 +53,6 @@ public class DescargarNoticias extends AsyncTask<Void, Void, Void> {
         //Indica que la descarga ya finalizo
         App.descarga_iniciada = false;
         App.noticias_descargadas = true;
-
-        //Servicio de descarga de noticias
     }
 
 
@@ -66,8 +61,8 @@ public class DescargarNoticias extends AsyncTask<Void, Void, Void> {
      * *
      */
 
-    protected Void doInBackground(Void... params) {
 
+    protected Void doInBackground(Void... params) {
 
         ControladorBaseDatos dbc = new ControladorBaseDatos(activity, ControladorBaseDatos.nombreDB, null, 1);
         SQLiteDatabase db = dbc.getWritableDatabase();
@@ -81,6 +76,7 @@ public class DescargarNoticias extends AsyncTask<Void, Void, Void> {
         datos[0][1] = App.keyApp;
         datos[1][0] = "cant_om";
         datos[1][1] = String.valueOf(App.noticias_cargadas);
+
 
         //Se conecta al servidor para obtener los datos de las noticias
         JSONObject noticias = Conexion.conectar(App.URL_DESCARGAR_NOTICIAS, datos);

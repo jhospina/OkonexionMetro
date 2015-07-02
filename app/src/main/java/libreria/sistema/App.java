@@ -23,13 +23,13 @@ public class App extends AppConfig {
      * ******************************************************
      */
 
-    public static final String URL_DESCARGAR_NOTICIAS = "https://appsthergo.com/upanel/public/app/descargar/noticias";
-    public static final String URL_DESCARGAR_INSTITUCIONAL = "https://appsthergo.com/upanel/public/app/descargar/institucional";
-    public static final String URL_DESCARGAR_ENCUESTA_VIGENTE="https://appsthergo.com/upanel/public/app/descargar/encuestas/vigente";
-    public static final String URL_DESCARGAR_ENCUESTAS_ARCHIVADAS="https://appsthergo.com/upanel/public/app/descargar/encuestas/archivadas";
-    public static final String URL_ENVIAR_ENCUESTA_RESPUESTA="https://appsthergo.com/upanel/public/app/enviar/encuestas/respuesta";
-    public static final String URL_ENVIAR_PQR="https://appsthergo.com/upanel/public/app/enviar/pqr";
-    public static final String URL_RECIBIR_PQR="https://appsthergo.com/upanel/public/app/recibir/pqr";
+    public static final String URL_DESCARGAR_NOTICIAS = "http://okonexion.com/upanel/public/app/descargar/noticias";
+    public static final String URL_DESCARGAR_INSTITUCIONAL = "http://okonexion.com/upanel/public/app/descargar/institucional";
+    public static final String URL_DESCARGAR_ENCUESTA_VIGENTE="http://okonexion.com/upanel/public/app/descargar/encuestas/vigente";
+    public static final String URL_DESCARGAR_ENCUESTAS_ARCHIVADAS="http://okonexion.com/upanel/public/app/descargar/encuestas/archivadas";
+    public static final String URL_ENVIAR_ENCUESTA_RESPUESTA="http://okonexion.com/upanel/public/app/enviar/encuestas/respuesta";
+    public static final String URL_ENVIAR_PQR="http://okonexion.com/upanel/public/app/enviar/pqr";
+    public static final String URL_RECIBIR_PQR="http://okonexion.com/upanel/public/app/recibir/pqr";
 
     /**
      * *******************************************************
