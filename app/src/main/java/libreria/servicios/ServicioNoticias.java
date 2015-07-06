@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.text.Html;
 import android.util.Log;
 
 import com.example.jhon.okonexionmetro.R;
@@ -96,7 +97,7 @@ public class ServicioNoticias extends Service {
                                                 .setLargeIcon((((BitmapDrawable) getResources()
                                                         .getDrawable(R.mipmap.ic_launcher)).getBitmap()))
                                                 .setContentTitle(titulo)
-                                                .setContentText(Util.recortarTexto(descripcion, 20))
+                                                .setContentText(Util.recortarTexto(Html.fromHtml(descripcion).toString(), 20))
                                                 .setContentInfo(AppConfig.txt_menuBtn_2)
                                                 .setTicker(titulo)
                                                 .setContentIntent(pendingIntent)
